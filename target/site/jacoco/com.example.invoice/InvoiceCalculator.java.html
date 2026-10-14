@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InvoiceCalculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">product-invoice</a> &gt; <a href="index.source.html" class="el_package">com.example.invoice</a> &gt; <span class="el_source">InvoiceCalculator.java</span></div><h1>InvoiceCalculator.java</h1><pre class="source lang-java linenums">package com.example.invoice;
+
+<span class="fc" id="L3">public class InvoiceCalculator {</span>
+    public double CalculateProductAmount(double price,int quantity){
+<span class="fc" id="L5">        return price*quantity;</span>
+    }
+    public double CalculateDiscount(double amount){
+<span class="fc bfc" id="L8" title="All 2 branches covered.">        if(amount&gt;=5000){</span>
+<span class="fc" id="L9">            return amount*0.10;</span>
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        }else if(amount&gt;=2000){</span>
+<span class="fc" id="L11">            return amount*0.05;</span>
+        }
+<span class="fc" id="L13">        return 0;</span>
+    }
+    public double CalculateGST(double amount){
+<span class="fc" id="L16">        return amount*0.18;</span>
+    }
+    public double CalculateFinalAmount(double amount){
+<span class="fc" id="L19">        double discount= CalculateDiscount(amount);</span>
+<span class="fc" id="L20">        double discountedAmount=amount-discount;</span>
+<span class="fc" id="L21">        double gst=CalculateGST(discountedAmount);</span>
+<span class="fc" id="L22">        return discountedAmount+gst;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
